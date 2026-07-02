@@ -108,7 +108,7 @@ function dragDrop(e: DragEvent) {
       </div>
     </div>
     <div
-      class="flex flex-1 overflow-hidden bg-secondary-background"
+      class="flex flex-1 overflow-hidden bg-base-background"
       :class="sidebarOnLeft ? 'flex-row' : 'flex-row-reverse'"
     >
       <SideToolbar
@@ -119,7 +119,7 @@ function dragDrop(e: DragEvent) {
       />
       <Splitter
         :key="splitterKey"
-        class="h-full flex-1 border-none bg-secondary-background"
+        class="h-full flex-1 border-none bg-base-background"
         @resizestart="$event.originalEvent.preventDefault()"
         @resizeend="onResizeEnd"
       >
