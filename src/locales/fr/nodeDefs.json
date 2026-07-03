@@ -2236,6 +2236,17 @@
       }
     }
   },
+  "ConditioningMultiply": {
+    "display_name": "Conditionnement (Multiplication)",
+    "inputs": {
+      "conditioning": {
+        "name": "conditionnement"
+      },
+      "multiplier": {
+        "name": "multiplicateur"
+      }
+    }
+  },
   "ConditioningSetArea": {
     "display_name": "Conditionnement (Définir Zone)",
     "inputs": {
@@ -5196,6 +5207,40 @@
       }
     }
   },
+  "GeminiVideoOmni": {
+    "description": "Générez une vidéo avec audio à partir d'une invite textuelle en utilisant le modèle Gemini Omni Flash de Google. Vous pouvez fournir des images et/ou vidéos de référence pour guider ou modifier le résultat. Indiquez la durée souhaitée (3-10s) et le format d'image (16:9 ou 9:16) directement dans l'invite.",
+    "display_name": "Google Gemini Omni (Vidéo)",
+    "inputs": {
+      "control_after_generate": {
+        "name": "contrôle après génération"
+      },
+      "model": {
+        "name": "modèle",
+        "tooltip": "Le modèle vidéo Gemini utilisé pour générer la vidéo."
+      },
+      "model_prompt": {
+        "name": "invite"
+      },
+      "model_temperature": {
+        "name": "température"
+      },
+      "model_top_p": {
+        "name": "top_p"
+      },
+      "seed": {
+        "name": "graine",
+        "tooltip": "La graine contrôle si le nœud doit être relancé ; les résultats sont non déterministes quel que soit la graine."
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      },
+      "1": {
+        "tooltip": null
+      }
+    }
+  },
   "GenerateTracks": {
     "display_name": "GenerateTracks",
     "inputs": {
@@ -6162,94 +6207,6 @@
       },
       "width": {
         "name": "largeur"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV1": {
-    "description": "Génère des images de manière synchrone en utilisant le modèle Ideogram V1.\n\nLes liens des images sont disponibles pour une durée limitée ; si vous souhaitez conserver l'image, vous devez la télécharger.",
-    "display_name": "Ideogram V1",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "aspect_ratio",
-        "tooltip": "Le format d'image pour la génération."
-      },
-      "control_after_generate": {
-        "name": "control after generate"
-      },
-      "magic_prompt_option": {
-        "name": "magic_prompt_option",
-        "tooltip": "Déterminer si MagicPrompt doit être utilisé lors de la génération"
-      },
-      "negative_prompt": {
-        "name": "negative_prompt",
-        "tooltip": "Description de ce qu'il faut exclure de l'image"
-      },
-      "num_images": {
-        "name": "num_images"
-      },
-      "prompt": {
-        "name": "prompt",
-        "tooltip": "Invite pour la génération d'image"
-      },
-      "seed": {
-        "name": "seed"
-      },
-      "turbo": {
-        "name": "turbo",
-        "tooltip": "Activer le mode turbo (génération plus rapide, qualité potentiellement inférieure)"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV2": {
-    "description": "Génère des images de manière synchrone en utilisant le modèle Ideogram V2.\n\nLes liens vers les images sont disponibles pour une durée limitée ; si vous souhaitez conserver l'image, vous devez la télécharger.",
-    "display_name": "Ideogram V2",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "aspect_ratio",
-        "tooltip": "Le format d'image pour la génération. Ignoré si la résolution n'est pas définie sur AUTO."
-      },
-      "control_after_generate": {
-        "name": "control after generate"
-      },
-      "magic_prompt_option": {
-        "name": "magic_prompt_option",
-        "tooltip": "Déterminer si MagicPrompt doit être utilisé lors de la génération"
-      },
-      "negative_prompt": {
-        "name": "negative_prompt",
-        "tooltip": "Description de ce qu'il faut exclure de l'image"
-      },
-      "num_images": {
-        "name": "num_images"
-      },
-      "prompt": {
-        "name": "prompt",
-        "tooltip": "Invite pour la génération d'image"
-      },
-      "resolution": {
-        "name": "resolution",
-        "tooltip": "La résolution pour la génération d'image. Si elle n'est pas définie sur AUTO, cela remplace le paramètre aspect_ratio."
-      },
-      "seed": {
-        "name": "seed"
-      },
-      "style_type": {
-        "name": "style_type",
-        "tooltip": "Type de style pour la génération (V2 uniquement)"
-      },
-      "turbo": {
-        "name": "turbo",
-        "tooltip": "Activer le mode turbo (génération plus rapide, qualité potentiellement inférieure)"
       }
     },
     "outputs": {

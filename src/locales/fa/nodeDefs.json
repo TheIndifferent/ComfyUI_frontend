@@ -2236,6 +2236,17 @@
       }
     }
   },
+  "ConditioningMultiply": {
+    "display_name": "شرط‌گذاری (ضرب)",
+    "inputs": {
+      "conditioning": {
+        "name": "شرط‌گذاری"
+      },
+      "multiplier": {
+        "name": "ضریب"
+      }
+    }
+  },
   "ConditioningSetArea": {
     "display_name": "شرطی‌سازی (تنظیم ناحیه)",
     "inputs": {
@@ -5196,6 +5207,40 @@
       }
     }
   },
+  "GeminiVideoOmni": {
+    "description": "تولید ویدیو همراه با صدا از یک پرامپت متنی با استفاده از مدل Gemini Omni Flash گوگل. می‌توانید تصاویر یا ویدیوهای مرجع را برای راهنمایی یا ویرایش نتیجه به صورت اختیاری وارد کنید. طول مورد نظر (۳ تا ۱۰ ثانیه) و نسبت تصویر (۱۶:۹ یا ۹:۱۶) را مستقیماً در پرامپت مشخص نمایید.",
+    "display_name": "Google Gemini Omni (ویدیو)",
+    "inputs": {
+      "control_after_generate": {
+        "name": "کنترل پس از تولید"
+      },
+      "model": {
+        "name": "مدل",
+        "tooltip": "مدل ویدیویی Gemini که برای تولید ویدیو استفاده می‌شود."
+      },
+      "model_prompt": {
+        "name": "پرامپت"
+      },
+      "model_temperature": {
+        "name": "دمای مدل"
+      },
+      "model_top_p": {
+        "name": "top_p"
+      },
+      "seed": {
+        "name": "بذر",
+        "tooltip": "بذر تعیین می‌کند که node باید دوباره اجرا شود یا خیر؛ نتایج صرف‌نظر از بذر، غیرقطعی هستند."
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      },
+      "1": {
+        "tooltip": null
+      }
+    }
+  },
   "GenerateTracks": {
     "display_name": "تولید مسیرها",
     "inputs": {
@@ -6162,94 +6207,6 @@
       },
       "width": {
         "name": "عرض"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV1": {
-    "description": "تولید تصویر با استفاده از مدل Ideogram V1.",
-    "display_name": "Ideogram V1",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "aspect_ratio",
-        "tooltip": "نسبت ابعاد برای تولید تصویر."
-      },
-      "control_after_generate": {
-        "name": "control after generate"
-      },
-      "magic_prompt_option": {
-        "name": "magic_prompt_option",
-        "tooltip": "تعیین اینکه آیا MagicPrompt در تولید استفاده شود یا خیر"
-      },
-      "negative_prompt": {
-        "name": "negative_prompt",
-        "tooltip": "توضیح مواردی که باید از تصویر حذف شوند"
-      },
-      "num_images": {
-        "name": "num_images"
-      },
-      "prompt": {
-        "name": "prompt",
-        "tooltip": "دستور متنی برای تولید تصویر"
-      },
-      "seed": {
-        "name": "seed"
-      },
-      "turbo": {
-        "name": "turbo",
-        "tooltip": "آیا از حالت توربو استفاده شود (تولید سریع‌تر، احتمالاً با کیفیت پایین‌تر)"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV2": {
-    "description": "تولید تصویر با استفاده از مدل Ideogram V2.",
-    "display_name": "Ideogram V2",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "aspect_ratio",
-        "tooltip": "نسبت ابعاد برای تولید تصویر. اگر وضوح روی AUTO تنظیم نشده باشد، نادیده گرفته می‌شود."
-      },
-      "control_after_generate": {
-        "name": "control after generate"
-      },
-      "magic_prompt_option": {
-        "name": "magic_prompt_option",
-        "tooltip": "تعیین اینکه آیا MagicPrompt در تولید استفاده شود یا خیر"
-      },
-      "negative_prompt": {
-        "name": "negative_prompt",
-        "tooltip": "توضیح مواردی که باید از تصویر حذف شوند"
-      },
-      "num_images": {
-        "name": "num_images"
-      },
-      "prompt": {
-        "name": "prompt",
-        "tooltip": "دستور متنی برای تولید تصویر"
-      },
-      "resolution": {
-        "name": "resolution",
-        "tooltip": "وضوح تصویر برای تولید. اگر روی AUTO تنظیم نشده باشد، این مقدار نسبت ابعاد را نادیده می‌گیرد."
-      },
-      "seed": {
-        "name": "seed"
-      },
-      "style_type": {
-        "name": "style_type",
-        "tooltip": "نوع سبک برای تولید (فقط V2)"
-      },
-      "turbo": {
-        "name": "turbo",
-        "tooltip": "آیا از حالت توربو استفاده شود (تولید سریع‌تر، احتمالاً با کیفیت پایین‌تر)"
       }
     },
     "outputs": {

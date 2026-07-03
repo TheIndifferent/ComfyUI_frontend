@@ -2236,6 +2236,17 @@
       }
     }
   },
+  "ConditioningMultiply": {
+    "display_name": "Conditioning (Умножение)",
+    "inputs": {
+      "conditioning": {
+        "name": "conditioning"
+      },
+      "multiplier": {
+        "name": "множитель"
+      }
+    }
+  },
   "ConditioningSetArea": {
     "display_name": "Кондиционирование (Установить область)",
     "inputs": {
@@ -5196,6 +5207,40 @@
       }
     }
   },
+  "GeminiVideoOmni": {
+    "description": "Создайте видео со звуком по текстовому промпту с помощью модели Gemini Omni Flash от Google. При необходимости добавьте референсные изображения и/или видео для управления или редактирования результата. Укажите желаемую длительность (3–10 сек) и соотношение сторон (16:9 или 9:16) прямо в промпте.",
+    "display_name": "Google Gemini Omni (Видео)",
+    "inputs": {
+      "control_after_generate": {
+        "name": "контроль после генерации"
+      },
+      "model": {
+        "name": "модель",
+        "tooltip": "Модель Gemini video, используемая для генерации видео."
+      },
+      "model_prompt": {
+        "name": "промпт"
+      },
+      "model_temperature": {
+        "name": "температура"
+      },
+      "model_top_p": {
+        "name": "top_p"
+      },
+      "seed": {
+        "name": "seed",
+        "tooltip": "Seed управляет необходимостью повторного запуска узла; результаты всегда недетерминированы, независимо от seed."
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      },
+      "1": {
+        "tooltip": null
+      }
+    }
+  },
   "GenerateTracks": {
     "display_name": "GenerateTracks",
     "inputs": {
@@ -6162,94 +6207,6 @@
       },
       "width": {
         "name": "ширина"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV1": {
-    "description": "Генерирует изображения синхронно с использованием модели Ideogram V1.\n\nСсылки на изображения доступны ограниченное время; если вы хотите сохранить изображение, его необходимо скачать.",
-    "display_name": "Ideogram V1",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "aspect_ratio",
-        "tooltip": "Соотношение сторон для генерации изображения."
-      },
-      "control_after_generate": {
-        "name": "control after generate"
-      },
-      "magic_prompt_option": {
-        "name": "magic_prompt_option",
-        "tooltip": "Определяет, использовать ли MagicPrompt при генерации"
-      },
-      "negative_prompt": {
-        "name": "negative_prompt",
-        "tooltip": "Описание того, что нужно исключить из изображения"
-      },
-      "num_images": {
-        "name": "num_images"
-      },
-      "prompt": {
-        "name": "prompt",
-        "tooltip": "Запрос для генерации изображения"
-      },
-      "seed": {
-        "name": "seed"
-      },
-      "turbo": {
-        "name": "turbo",
-        "tooltip": "Использовать ли turbo-режим (более быстрая генерация, возможно, с пониженным качеством)"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV2": {
-    "description": "Генерирует изображения синхронно с использованием модели Ideogram V2.\n\nСсылки на изображения доступны ограниченное время; если вы хотите сохранить изображение, его необходимо скачать.",
-    "display_name": "Ideogram V2",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "aspect_ratio",
-        "tooltip": "Соотношение сторон для генерации изображения. Игнорируется, если разрешение не установлено в AUTO."
-      },
-      "control_after_generate": {
-        "name": "control after generate"
-      },
-      "magic_prompt_option": {
-        "name": "magic_prompt_option",
-        "tooltip": "Определяет, использовать ли MagicPrompt при генерации"
-      },
-      "negative_prompt": {
-        "name": "negative_prompt",
-        "tooltip": "Описание того, что следует исключить из изображения"
-      },
-      "num_images": {
-        "name": "num_images"
-      },
-      "prompt": {
-        "name": "prompt",
-        "tooltip": "Запрос для генерации изображения"
-      },
-      "resolution": {
-        "name": "resolution",
-        "tooltip": "Разрешение для генерации изображения. Если не установлено в AUTO, этот параметр переопределяет настройку aspect_ratio."
-      },
-      "seed": {
-        "name": "seed"
-      },
-      "style_type": {
-        "name": "style_type",
-        "tooltip": "Тип стиля для генерации (только для V2)"
-      },
-      "turbo": {
-        "name": "turbo",
-        "tooltip": "Использовать ли turbo-режим (более быстрая генерация, возможно, с пониженным качеством)"
       }
     },
     "outputs": {

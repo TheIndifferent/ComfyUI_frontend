@@ -2236,6 +2236,17 @@
       }
     }
   },
+  "ConditioningMultiply": {
+    "display_name": "התניה (כפל)",
+    "inputs": {
+      "conditioning": {
+        "name": "התניה"
+      },
+      "multiplier": {
+        "name": "מכפיל"
+      }
+    }
+  },
   "ConditioningSetArea": {
     "display_name": "התניה (הגדרת אזור)",
     "inputs": {
@@ -5196,6 +5207,40 @@
       }
     }
   },
+  "GeminiVideoOmni": {
+    "description": "יצירת וידאו עם אודיו מתוך פרומפט טקסטואלי באמצעות מודל Gemini Omni Flash של Google. ניתן להוסיף תמונות ו/או סרטונים כהפניות להכוונה או עריכה של התוצאה. יש לציין את האורך הרצוי (3-10 שניות) ואת יחס הגובה-רוחב (16:9 או 9:16) ישירות בפרומפט.",
+    "display_name": "Google Gemini Omni (וידאו)",
+    "inputs": {
+      "control_after_generate": {
+        "name": "שליטה לאחר יצירה"
+      },
+      "model": {
+        "name": "מודל",
+        "tooltip": "מודל הווידאו של Gemini המשמש ליצירת הווידאו."
+      },
+      "model_prompt": {
+        "name": "פרומפט"
+      },
+      "model_temperature": {
+        "name": "טמפרטורה"
+      },
+      "model_top_p": {
+        "name": "top_p"
+      },
+      "seed": {
+        "name": "seed",
+        "tooltip": "ה-seed קובע האם הצומת ירוץ מחדש; התוצאות אינן דטרמיניסטיות ללא קשר ל-seed."
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      },
+      "1": {
+        "tooltip": null
+      }
+    }
+  },
   "GenerateTracks": {
     "display_name": "יצירת מסלולי וידאו",
     "inputs": {
@@ -6162,94 +6207,6 @@
       },
       "width": {
         "name": "רוחב"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV1": {
-    "description": "יוצר תמונות באמצעות מודל Ideogram V1.",
-    "display_name": "Ideogram V1",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "יחס גובה-רוחב",
-        "tooltip": "יחס הגובה-רוחב ליצירת התמונה."
-      },
-      "control_after_generate": {
-        "name": "שליטה לאחר יצירה"
-      },
-      "magic_prompt_option": {
-        "name": "אפשרות MagicPrompt",
-        "tooltip": "האם להשתמש ב-MagicPrompt ביצירה"
-      },
-      "negative_prompt": {
-        "name": "הנחיה שלילית",
-        "tooltip": "תיאור של מה להוציא מהתמונה"
-      },
-      "num_images": {
-        "name": "מספר תמונות"
-      },
-      "prompt": {
-        "name": "הנחיה",
-        "tooltip": "הנחיה ליצירת התמונה"
-      },
-      "seed": {
-        "name": "seed"
-      },
-      "turbo": {
-        "name": "טורבו",
-        "tooltip": "האם להשתמש במצב טורבו (יצירה מהירה יותר, ייתכן באיכות נמוכה יותר)"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV2": {
-    "description": "יוצר תמונות באמצעות מודל Ideogram V2.",
-    "display_name": "Ideogram V2",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "יחס גובה-רוחב",
-        "tooltip": "יחס הגובה-רוחב ליצירת התמונה. מתעלם אם הרזולוציה לא מוגדרת כ-AUTO."
-      },
-      "control_after_generate": {
-        "name": "שליטה לאחר יצירה"
-      },
-      "magic_prompt_option": {
-        "name": "אפשרות MagicPrompt",
-        "tooltip": "האם להשתמש ב-MagicPrompt ביצירה"
-      },
-      "negative_prompt": {
-        "name": "הנחיה שלילית",
-        "tooltip": "תיאור של מה להוציא מהתמונה"
-      },
-      "num_images": {
-        "name": "מספר תמונות"
-      },
-      "prompt": {
-        "name": "הנחיה",
-        "tooltip": "הנחיה ליצירת התמונה"
-      },
-      "resolution": {
-        "name": "רזולוציה",
-        "tooltip": "הרזולוציה ליצירת התמונה. אם לא מוגדר כ-AUTO, זה עוקף את הגדרת יחס הגובה-רוחב."
-      },
-      "seed": {
-        "name": "seed"
-      },
-      "style_type": {
-        "name": "סוג סגנון",
-        "tooltip": "סוג הסגנון ליצירה (V2 בלבד)"
-      },
-      "turbo": {
-        "name": "טורבו",
-        "tooltip": "האם להשתמש במצב טורבו (יצירה מהירה יותר, ייתכן באיכות נמוכה יותר)"
       }
     },
     "outputs": {

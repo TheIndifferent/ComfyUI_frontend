@@ -2236,6 +2236,17 @@
       }
     }
   },
+  "ConditioningMultiply": {
+    "display_name": "Koşullandırma (Çarpma)",
+    "inputs": {
+      "conditioning": {
+        "name": "koşullandırma"
+      },
+      "multiplier": {
+        "name": "çarpan"
+      }
+    }
+  },
   "ConditioningSetArea": {
     "display_name": "Koşullandırma (Alan Ayarla)",
     "inputs": {
@@ -5196,6 +5207,40 @@
       }
     }
   },
+  "GeminiVideoOmni": {
+    "description": "Google'ın Gemini Omni Flash modeliyle bir metin isteminden sesli video oluşturun. Sonucu yönlendirmek veya düzenlemek için isteğe bağlı olarak referans görseller ve/veya videolar ekleyebilirsiniz. İstenen uzunluğu (3-10 sn) ve en-boy oranını (16:9 veya 9:16) doğrudan istemde belirtin.",
+    "display_name": "Google Gemini Omni (Video)",
+    "inputs": {
+      "control_after_generate": {
+        "name": "oluşturduktan sonra kontrol et"
+      },
+      "model": {
+        "name": "model",
+        "tooltip": "Videoyu oluşturmak için kullanılan Gemini video modeli."
+      },
+      "model_prompt": {
+        "name": "istem"
+      },
+      "model_temperature": {
+        "name": "sıcaklık"
+      },
+      "model_top_p": {
+        "name": "top_p"
+      },
+      "seed": {
+        "name": "tohum",
+        "tooltip": "Tohum, düğümün tekrar çalıştırılıp çalıştırılmayacağını kontrol eder; sonuçlar tohumdan bağımsız olarak deterministik değildir."
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      },
+      "1": {
+        "tooltip": null
+      }
+    }
+  },
   "GenerateTracks": {
     "display_name": "GenerateTracks",
     "inputs": {
@@ -6162,94 +6207,6 @@
       },
       "width": {
         "name": "genişlik"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV1": {
-    "description": "Ideogram V1 modelini kullanarak eşzamanlı olarak görüntüler oluşturur.\n\nGörüntü bağlantıları sınırlı bir süre için mevcuttur; görüntüyü saklamak isterseniz indirmeniz gerekir.",
-    "display_name": "Ideogram V1",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "en_boy_oranı",
-        "tooltip": "Görüntü oluşturma için en boy oranı."
-      },
-      "control_after_generate": {
-        "name": "oluşturduktan sonra kontrol et"
-      },
-      "magic_prompt_option": {
-        "name": "sihirli_istem_seçeneği",
-        "tooltip": "Üretimde MagicPrompt'un kullanılıp kullanılmayacağını belirleyin"
-      },
-      "negative_prompt": {
-        "name": "negatif_istem",
-        "tooltip": "Görüntüden hariç tutulacakların açıklaması"
-      },
-      "num_images": {
-        "name": "görüntü_sayısı"
-      },
-      "prompt": {
-        "name": "istem",
-        "tooltip": "Görüntü oluşturma istemi"
-      },
-      "seed": {
-        "name": "tohum"
-      },
-      "turbo": {
-        "name": "turbo",
-        "tooltip": "Turbo modunun kullanılıp kullanılmayacağı (daha hızlı üretim, potansiyel olarak daha düşük kalite)"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV2": {
-    "description": "Ideogram V2 modelini kullanarak eşzamanlı olarak görüntüler oluşturur.\n\nGörüntü bağlantıları sınırlı bir süre için mevcuttur; görüntüyü saklamak isterseniz indirmeniz gerekir.",
-    "display_name": "Ideogram V2",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "en_boy_oranı",
-        "tooltip": "Görüntü oluşturma için en boy oranı. Çözünürlük AUTO olarak ayarlanmadıysa yoksayılır."
-      },
-      "control_after_generate": {
-        "name": "oluşturduktan sonra kontrol et"
-      },
-      "magic_prompt_option": {
-        "name": "sihirli_istem_seçeneği",
-        "tooltip": "Üretimde MagicPrompt'un kullanılıp kullanılmayacağını belirleyin"
-      },
-      "negative_prompt": {
-        "name": "negatif_istem",
-        "tooltip": "Görüntüden hariç tutulacakların açıklaması"
-      },
-      "num_images": {
-        "name": "görüntü_sayısı"
-      },
-      "prompt": {
-        "name": "istem",
-        "tooltip": "Görüntü oluşturma istemi"
-      },
-      "resolution": {
-        "name": "çözünürlük",
-        "tooltip": "Görüntü oluşturma için çözünürlük. AUTO olarak ayarlanmadıysa, bu en_boy_oranı ayarını geçersiz kılar."
-      },
-      "seed": {
-        "name": "tohum"
-      },
-      "style_type": {
-        "name": "stil_türü",
-        "tooltip": "Üretim için stil türü (yalnızca V2)"
-      },
-      "turbo": {
-        "name": "turbo",
-        "tooltip": "Turbo modunun kullanılıp kullanılmayacağı (daha hızlı üretim, potansiyel olarak daha düşük kalite)"
       }
     },
     "outputs": {

@@ -2236,6 +2236,17 @@
       }
     }
   },
+  "ConditioningMultiply": {
+    "display_name": "條件（乘法）",
+    "inputs": {
+      "conditioning": {
+        "name": "條件"
+      },
+      "multiplier": {
+        "name": "乘數"
+      }
+    }
+  },
   "ConditioningSetArea": {
     "display_name": "條件設定（區域設置）",
     "inputs": {
@@ -5196,6 +5207,40 @@
       }
     }
   },
+  "GeminiVideoOmni": {
+    "description": "使用 Google 的 Gemini Omni Flash 模型，根據文字提示生成帶有音訊的影片。可選擇提供參考圖片和／或影片以輔助或編輯結果。請直接在提示中描述所需長度（3-10 秒）及長寬比（16:9 或 9:16）。",
+    "display_name": "Google Gemini Omni（影片）",
+    "inputs": {
+      "control_after_generate": {
+        "name": "生成後控制"
+      },
+      "model": {
+        "name": "模型",
+        "tooltip": "用於生成影片的 Gemini 影片模型。"
+      },
+      "model_prompt": {
+        "name": "提示"
+      },
+      "model_temperature": {
+        "name": "溫度"
+      },
+      "model_top_p": {
+        "name": "top_p"
+      },
+      "seed": {
+        "name": "種子",
+        "tooltip": "種子控制此節點是否重新執行；無論種子為何，結果皆為非確定性。"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      },
+      "1": {
+        "tooltip": null
+      }
+    }
+  },
   "GenerateTracks": {
     "display_name": "GenerateTracks",
     "inputs": {
@@ -6162,94 +6207,6 @@
       },
       "width": {
         "name": "寬度"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV1": {
-    "description": "使用 Ideogram V1 模型同步產生影像。\n\n影像連結僅限時有效；如需保留影像，請務必下載。",
-    "display_name": "Ideogram V1",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "長寬比",
-        "tooltip": "影像生成的長寬比。"
-      },
-      "control_after_generate": {
-        "name": "生成後控制"
-      },
-      "magic_prompt_option": {
-        "name": "MagicPrompt 選項",
-        "tooltip": "決定生成時是否使用 MagicPrompt"
-      },
-      "negative_prompt": {
-        "name": "排除提示詞",
-        "tooltip": "描述要從影像中排除的內容"
-      },
-      "num_images": {
-        "name": "影像數量"
-      },
-      "prompt": {
-        "name": "提示詞",
-        "tooltip": "用於影像生成的提示詞"
-      },
-      "seed": {
-        "name": "種子值"
-      },
-      "turbo": {
-        "name": "加速模式",
-        "tooltip": "是否啟用加速模式（生成速度更快，但品質可能較低）"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV2": {
-    "description": "使用 Ideogram V2 模型同步產生影像。\n\n影像連結僅限時有效；若您想保留影像，請務必下載。",
-    "display_name": "Ideogram V2",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "長寬比",
-        "tooltip": "影像生成的長寬比。若解析度未設為自動，則此設定會被忽略。"
-      },
-      "control_after_generate": {
-        "name": "生成後控制"
-      },
-      "magic_prompt_option": {
-        "name": "MagicPrompt 選項",
-        "tooltip": "決定生成時是否使用 MagicPrompt"
-      },
-      "negative_prompt": {
-        "name": "排除提示詞",
-        "tooltip": "描述影像中要排除的內容"
-      },
-      "num_images": {
-        "name": "影像數量"
-      },
-      "prompt": {
-        "name": "提示詞",
-        "tooltip": "用於影像生成的提示詞"
-      },
-      "resolution": {
-        "name": "解析度",
-        "tooltip": "影像生成的解析度。若未設為自動，將覆蓋長寬比設定。"
-      },
-      "seed": {
-        "name": "種子值"
-      },
-      "style_type": {
-        "name": "風格類型",
-        "tooltip": "生成時的風格類型（僅限 V2）"
-      },
-      "turbo": {
-        "name": "加速模式",
-        "tooltip": "是否啟用加速模式（生成速度更快，但品質可能較低）"
       }
     },
     "outputs": {

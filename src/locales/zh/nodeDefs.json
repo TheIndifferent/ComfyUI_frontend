@@ -2236,6 +2236,17 @@
       }
     }
   },
+  "ConditioningMultiply": {
+    "display_name": "条件（乘法）",
+    "inputs": {
+      "conditioning": {
+        "name": "条件"
+      },
+      "multiplier": {
+        "name": "乘数"
+      }
+    }
+  },
   "ConditioningSetArea": {
     "display_name": "条件采样区域",
     "inputs": {
@@ -5196,6 +5207,40 @@
       }
     }
   },
+  "GeminiVideoOmni": {
+    "description": "使用 Google 的 Gemini Omni Flash 模型，通过文本提示生成带音频的视频。可选地提供参考图像和/或视频以引导或编辑结果。在提示中直接描述所需时长（3-10秒）和宽高比（16:9 或 9:16）。",
+    "display_name": "Google Gemini Omni（视频）",
+    "inputs": {
+      "control_after_generate": {
+        "name": "生成后控制"
+      },
+      "model": {
+        "name": "模型",
+        "tooltip": "用于生成视频的 Gemini 视频模型。"
+      },
+      "model_prompt": {
+        "name": "提示"
+      },
+      "model_temperature": {
+        "name": "温度"
+      },
+      "model_top_p": {
+        "name": "top_p"
+      },
+      "seed": {
+        "name": "种子",
+        "tooltip": "种子控制节点是否重新运行；无论种子如何，结果都是非确定性的。"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      },
+      "1": {
+        "tooltip": null
+      }
+    }
+  },
   "GenerateTracks": {
     "display_name": "生成轨道",
     "inputs": {
@@ -6162,94 +6207,6 @@
       },
       "width": {
         "name": "宽度"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV1": {
-    "description": "使用 Ideogram V1 模型同步生成图像。\n\n图片链接仅在有限时间内有效；如果您想保留图片，请务必下载。",
-    "display_name": "Ideogram V1",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "宽高比",
-        "tooltip": "图像生成的宽高比。"
-      },
-      "control_after_generate": {
-        "name": "生成后控制"
-      },
-      "magic_prompt_option": {
-        "name": "Magic Prompt",
-        "tooltip": "确定生成时是否使用 MagicPrompt"
-      },
-      "negative_prompt": {
-        "name": "负面提示词",
-        "tooltip": "描述需要从图像中排除的内容"
-      },
-      "num_images": {
-        "name": "图像数量"
-      },
-      "prompt": {
-        "name": "提示词",
-        "tooltip": "用于图像生成的提示词"
-      },
-      "seed": {
-        "name": "随机种"
-      },
-      "turbo": {
-        "name": "turbo",
-        "tooltip": "是否启用 turbo 模式（生成更快，但可能质量较低）"
-      }
-    },
-    "outputs": {
-      "0": {
-        "tooltip": null
-      }
-    }
-  },
-  "IdeogramV2": {
-    "description": "使用 Ideogram V2 模型同步生成图像。\n\n图像链接仅在有限时间内有效；如果您想保留图像，请务必下载。",
-    "display_name": "Ideogram V2",
-    "inputs": {
-      "aspect_ratio": {
-        "name": "宽高比",
-        "tooltip": "图像生成的宽高比。如果分辨率未设置为 AUTO，则此项无效。"
-      },
-      "control_after_generate": {
-        "name": "生成后控制"
-      },
-      "magic_prompt_option": {
-        "name": "Magic Prompt",
-        "tooltip": "确定生成时是否使用 MagicPrompt"
-      },
-      "negative_prompt": {
-        "name": "负面提示词",
-        "tooltip": "描述图像中需要排除的内容"
-      },
-      "num_images": {
-        "name": "图像数量"
-      },
-      "prompt": {
-        "name": "提示词",
-        "tooltip": "用于图像生成的提示词"
-      },
-      "resolution": {
-        "name": "分辨率",
-        "tooltip": "图像生成的分辨率。如果未设置为 AUTO，则会覆盖 aspect_ratio 设置。"
-      },
-      "seed": {
-        "name": "随机种"
-      },
-      "style_type": {
-        "name": "风格",
-        "tooltip": "生成的风格类型（仅限 V2）"
-      },
-      "turbo": {
-        "name": "turbo",
-        "tooltip": "是否启用 turbo 模式（生成更快，质量可能略低）"
       }
     },
     "outputs": {
