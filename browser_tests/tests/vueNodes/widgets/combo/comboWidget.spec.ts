@@ -141,6 +141,24 @@ test.describe('Vue Combo Widget', { tag: ['@vue-nodes', '@widget'] }, () => {
     ).toBeVisible()
   })
 
+  test('@mobile opens a dropdown with a touch tap', async ({ comfyPage }) => {
+    await comfyPage.workflow.loadWorkflow('vueNodes/linked-int-widget')
+
+    const samplerCombo = comfyPage.vueNodes
+      .getNodeByTitle('KSampler')
+      .getByRole('combobox', { name: 'sampler_name', exact: true })
+
+    await samplerCombo.tap()
+
+    const viewport = comfyPage.page.getByTestId(
+      TestIds.widgets.selectDefaultViewport
+    )
+    await expect(viewport).toBeVisible()
+    await expect(
+      comfyPage.page.getByRole('option', { name: 'euler', exact: true })
+    ).toBeVisible()
+  })
+
   test('updates the combo value after a new option is selected', async ({
     comfyPage
   }) => {

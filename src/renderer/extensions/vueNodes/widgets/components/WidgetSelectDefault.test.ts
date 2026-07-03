@@ -71,6 +71,19 @@ describe('WidgetSelectDefault', () => {
     await flushPromises()
   }
 
+  async function touchTrigger(trigger: HTMLElement) {
+    // user-event does not model the synthetic click emitted after a touch
+    // pointerup, so dispatch the touch sequence explicitly.
+    // eslint-disable-next-line testing-library/prefer-user-event
+    await fireEvent.pointerDown(trigger, { pointerType: 'touch' })
+    // eslint-disable-next-line testing-library/prefer-user-event
+    await fireEvent.pointerUp(trigger, { pointerType: 'touch' })
+    // eslint-disable-next-line testing-library/prefer-user-event
+    await fireEvent.click(trigger)
+    await nextTick()
+    await flushPromises()
+  }
+
   const optionLabels = () =>
     screen.queryAllByRole('option').map((option) => option.textContent?.trim())
 
@@ -179,6 +192,47 @@ describe('WidgetSelectDefault', () => {
       await user.type(screen.getByRole('combobox', { name: 'Search' }), 'alp')
 
       expect(getOptionLabel).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('trigger activation', () => {
+    it('preserves desktop mouse click toggle behavior', async () => {
+      const { user } = renderComponent(createWidget(['a', 'b', 'c']))
+      const trigger = screen.getByTestId('widget-select-default-trigger')
+
+      await user.click(trigger)
+      expect(screen.getByTestId('widget-select-default-viewport')).toBeVisible()
+
+      await user.click(trigger)
+      await waitFor(() => {
+        expect(
+          screen.queryByTestId('widget-select-default-viewport')
+        ).not.toBeInTheDocument()
+      })
+    })
+
+    it('keeps the dropdown open after touch tap activation', async () => {
+      renderComponent(createWidget(['a', 'b', 'c']))
+      const trigger = screen.getByTestId('widget-select-default-trigger')
+
+      await touchTrigger(trigger)
+
+      expect(screen.getByTestId('widget-select-default-viewport')).toBeVisible()
+      expect(optionLabels()).toEqual(['a', 'b', 'c'])
+    })
+
+    it('toggles the dropdown closed with a second touch tap', async () => {
+      renderComponent(createWidget(['a', 'b', 'c']))
+      const trigger = screen.getByTestId('widget-select-default-trigger')
+
+      await touchTrigger(trigger)
+      await touchTrigger(trigger)
+
+      await waitFor(() => {
+        expect(
+          screen.queryByTestId('widget-select-default-viewport')
+        ).not.toBeInTheDocument()
+      })
     })
   })
 

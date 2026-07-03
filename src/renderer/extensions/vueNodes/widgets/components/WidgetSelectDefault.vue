@@ -36,6 +36,10 @@
               tabindex="0"
               data-testid="widget-select-default-trigger"
               class="flex min-w-0 flex-1 cursor-pointer items-center overflow-hidden border-none bg-transparent p-0 outline-none disabled:cursor-default"
+              @pointerdown.capture="handleTriggerPointerDown"
+              @pointerup.capture="handleTriggerPointerUp"
+              @pointercancel.capture="handleTriggerPointerCancel"
+              @click.capture="handleTriggerClick"
             >
               <span
                 class="min-w-[4ch] flex-1 truncate pr-1 pl-2 text-left text-xs"
@@ -162,7 +166,7 @@ import {
   ComboboxRoot,
   ComboboxTrigger
 } from 'reka-ui'
-import { computed, ref } from 'vue'
+import { computed, onScopeDispose, ref } from 'vue'
 import type { CSSProperties } from 'vue'
 
 import { useRestoreFocusOnViewportPointer } from '@/renderer/extensions/vueNodes/widgets/composables/useRestoreFocusOnViewportPointer'
@@ -243,6 +247,8 @@ const searchQuery = ref('')
 const optionsRefreshKey = ref(0)
 const isOpen = ref(false)
 const searchInputContainerRef = ref<HTMLElement>()
+const nonMouseTriggerActivation = ref<{ openBefore: boolean } | null>(null)
+let clearNonMouseTriggerTimer: number | undefined
 const { handleFocusOutside, handleViewportPointerDown } =
   useRestoreFocusOnViewportPointer(focusSearchInput)
 
@@ -258,6 +264,53 @@ const filterPlaceholder = computed(
 
 function refreshOptions() {
   optionsRefreshKey.value++
+}
+
+function isNonMousePointer(event: PointerEvent) {
+  return event.pointerType !== '' && event.pointerType !== 'mouse'
+}
+
+function clearNonMouseTriggerActivation() {
+  nonMouseTriggerActivation.value = null
+  window.clearTimeout(clearNonMouseTriggerTimer)
+  clearNonMouseTriggerTimer = undefined
+}
+
+onScopeDispose(clearNonMouseTriggerActivation)
+
+function handleTriggerPointerDown(event: PointerEvent) {
+  if (disabled.value || !isNonMousePointer(event)) return
+
+  window.clearTimeout(clearNonMouseTriggerTimer)
+  nonMouseTriggerActivation.value = { openBefore: isOpen.value }
+}
+
+function handleTriggerPointerUp(event: PointerEvent) {
+  const activation = nonMouseTriggerActivation.value
+  if (!activation || !isNonMousePointer(event)) return
+
+  event.preventDefault()
+  event.stopImmediatePropagation()
+  handleOpenChange(!activation.openBefore)
+
+  // Touch browsers often dispatch a synthetic click after pointerup. Keep the
+  // guard alive through that click so Reka does not immediately toggle again.
+  clearNonMouseTriggerTimer = window.setTimeout(
+    clearNonMouseTriggerActivation,
+    0
+  )
+}
+
+function handleTriggerPointerCancel(event: PointerEvent) {
+  if (isNonMousePointer(event)) clearNonMouseTriggerActivation()
+}
+
+function handleTriggerClick(event: MouseEvent) {
+  if (!nonMouseTriggerActivation.value) return
+
+  event.preventDefault()
+  event.stopImmediatePropagation()
+  clearNonMouseTriggerActivation()
 }
 
 function getOptionLabel(value: string) {
